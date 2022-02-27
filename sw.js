@@ -1,8 +1,13 @@
 self.addEventListener('push', e => {
-    console.log(e.data.json());
+    let data = e.data.json();
     let options = {
-        body: 'Nqkakkuw tekst',
+        body: data.message,
         icon: 'logomm.png'
     }
-    e.waitUntil(self.registration.showNotification('New Order',options))
+    e.waitUntil(self.registration.showNotification(data.title, options))
 })
+
+self.addEventListener('notificationclick', (e) => {
+    e.notification.close();
+    clients.openWindow('https://mail.bg');
+});
