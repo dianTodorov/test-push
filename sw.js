@@ -1,5 +1,5 @@
 self.addEventListener('push', e => {
-
+    console.log(e.data);
     let options = {
         body: 'Nqkakkuw tekst',
         icon: 'logomm.png'
