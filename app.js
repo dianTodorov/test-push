@@ -6,7 +6,7 @@ window.addEventListener('load', async () => {
 
     subscribeBtn.addEventListener('click', async () => {
         let sw = await navigator.serviceWorker.ready;
-        let clientId = sw.pushManager.subscribe({
+        let clientId = await sw.pushManager.subscribe({
             userVisibleOnly:true,
             applicationServerKey:'BLRZQG9aYYcuQzxrdE8eelNPycd5ZhkDMptVABfec2MFNa7Wp8-n1CisyGpqecIqdvvsQO8kIUz-t-J0_XdZKhw'
         })
