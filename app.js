@@ -11,14 +11,13 @@ window.addEventListener('load', async () => {
             applicationServerKey: 'BLRZQG9aYYcuQzxrdE8eelNPycd5ZhkDMptVABfec2MFNa7Wp8-n1CisyGpqecIqdvvsQO8kIUz-t-J0_XdZKhw'
         })
         console.log(clientId);
-        console.log(JSON.stringify(clientId));
-        await postData(clientId);
-
-
+        let res = JSON.parse(JSON.stringify(clientId));
+        await postData(res);
     })
 });
 
 async function postData(sub) {
+    
     let subObjec = {
         endpoint: sub.endpoint,
         p256dh: sub.keys.p256dh,
